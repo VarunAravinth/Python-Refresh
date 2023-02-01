@@ -1,0 +1,4 @@
+module -> a valid python file
+package -> a valid folder
+
+when you import a module(file), it runs the file
