@@ -1,0 +1,13 @@
+__init__.py --> python 3.5 or less (mandatory)
+
+Classes and objects:
+
+Why?
+logically group data and functions together.
+code becomes maintainable and reusuable 
+helps to write DRY code( Dont repeat yourself)
+
+data and functions --> attributes and methods 
+
+reversed() --> function
+st.reverse() --> method
