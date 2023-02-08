@@ -11,3 +11,26 @@ data and functions --> attributes and methods
 
 reversed() --> function
 st.reverse() --> method
+
+08-FEB-2023
+which is faster tuple or list ? 
+
+
+
+Employee
+
+1. name,salary,age,designation,gender
+class variable -> salary
+
+2. class method to increase the class variable ( salary) argument(10 percent)
+
+inheritance -> employee
+
+3. developer -> inherites -> employee ( salary increase 20 percent)
+manager -> inherites from employee ( salary increase by 5 percent)
+
+
+4. + add two employees -> salary average
+
+
+
