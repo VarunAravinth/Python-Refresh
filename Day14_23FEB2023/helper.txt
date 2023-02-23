@@ -1,0 +1,14 @@
+# First class functions
+
+IN python functions are called as first class()functions.
+Not a specific function is called as first class
+the entire lang is treated as first class
+
+eg : Python, javascript
+
+Properties of first class:
+1. Functions behave as objects.
+2. you can store functions in a variable/data structure.
+3. you can pass a function as an argument/parameter
+4. you can return a function
+
