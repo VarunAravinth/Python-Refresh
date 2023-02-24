@@ -34,3 +34,17 @@ for obj in li:
 print(sol)
 
 
+def decorator(func):
+    def inner(a,b):
+        if b > a:
+            return 'oops cant dvide'
+        else:
+            return func(a,b)
+    return inner
+
+
+@decorator
+def divide(a,b):
+    return a/b
+
+print(divide(10,5))
