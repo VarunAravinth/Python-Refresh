@@ -202,33 +202,99 @@
 
 
 # -------- sample 6 ---- Real time example -------------
-import requests
-import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
+# import requests
+# import time
+# from concurrent.futures import ThreadPoolExecutor, as_completed
 
+# start_time = time.time()
+
+# def get_data(url):
+#     return requests.get(url).text
+
+# threads = []
+# with ThreadPoolExecutor() as executor:
+#     result1 = executor.submit(get_data,'http://api.open-notify.org/iss-now.json')
+#     result2 = executor.submit(get_data,'http://api.open-notify.org/astros.json')
+#     result3 = executor.submit(get_data,'http://api.open-notify.org/astros.json')
+
+#     threads.append(result1)
+#     threads.append(result2)
+#     threads.append(result3)
+
+#     for thread in as_completed(threads):
+#         print(thread.result())
+
+
+
+# # print(get_data('http://api.open-notify.org/iss-now.json'))
+# # print(get_data('http://api.open-notify.org/astros.json'))
+# # print(get_data('http://api.open-notify.org/astros.json'))
+
+# end_time = time.time()
+
+# time_taken = end_time - start_time
+# print('time taken - {} (s)'.format(round(time_taken,5)))
+# print('program execution ------ end ----------')
+
+
+
+# --------- multi-processing-------------------
+
+# speeds up the program
+# multiple processes run in parallel
+
+
+# import multiprocessing
+# import time
+# print('program execution ------ start ----------')
+# start_time = time.time()
+
+# def sample(name,seconds):
+#     print('{} - sample going to sleep for {}'.format(name,seconds))
+#     time.sleep(seconds)
+#     print('{} - sample done.....'.format(name))
+
+
+# # sample('call-1',2)
+# # sample('call-2',3)
+
+# if __name__ == '__main__':
+#     t1 = multiprocessing.Process(target=sample, args=['call-1',10] )
+#     t2 = multiprocessing.Process(target=sample, args=['call-2',10] )
+
+#     t1.start()
+#     t2.start()
+
+#     t1.join()
+#     t2.join()
+
+
+#     end_time = time.time()
+
+#     time_taken = end_time - start_time
+#     print('time taken - {} (s)'.format(round(time_taken,5)))
+#     print('program execution ------ end ----------')
+
+
+
+from concurrent.futures import ProcessPoolExecutor
+import time
+print('program execution ------ start ----------')
 start_time = time.time()
 
-def get_data(url):
-    return requests.get(url).text
+def sample(seconds):
+    print('sample going to sleep for {}'.format(seconds))
+    time.sleep(seconds)
+    return '{} - sample done.....'.format(seconds)
 
-threads = []
-with ThreadPoolExecutor() as executor:
-    result1 = executor.submit(get_data,'http://api.open-notify.org/iss-now.json')
-    result2 = executor.submit(get_data,'http://api.open-notify.org/astros.json')
-    result3 = executor.submit(get_data,'http://api.open-notify.org/astros.json')
+if __name__ == '__main__':
+    with ProcessPoolExecutor() as executor:
+        t1 = executor.submit(sample,4)
+        t2 = executor.submit(sample,4)
 
-    threads.append(result1)
-    threads.append(result2)
-    threads.append(result3)
+        print('result - ', t1.result())
+        print('result - ', t2.result())
 
-    for thread in as_completed(threads):
-        print(thread.result())
-
-
-
-# print(get_data('http://api.open-notify.org/iss-now.json'))
-# print(get_data('http://api.open-notify.org/astros.json'))
-# print(get_data('http://api.open-notify.org/astros.json'))
 
 end_time = time.time()
 
